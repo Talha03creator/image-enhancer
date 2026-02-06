@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Picture Enhancer - Professional Image Tools</title>
+    <link rel="stylesheet" href="/static/style.css?v=8">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- New Header -->
+    <header class="site-header">
+        <div class="container-nav">
+            <!-- Logo -->
+
+            <!-- Mobile Toggle -->
+            <div class="hamburger" onclick="document.querySelector('.nav-menu').classList.toggle('active')">
+                &#9776;
+            </div>
+
+            <!-- Navigation Links -->
+            <nav class="nav-menu">
+                <a href="#" class="nav-link lang">English</a>
+                <a href="#" class="nav-link">Pricing</a>
+
+                <!-- Theme Toggle -->
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+
+                <!-- CTA -->
+                <a href="/login" class="btn-nav-cta" style="margin-left: 1rem;">Start for Free</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- New Hero Section -->
+    <section class="new-hero">
+        <div class="new-hero-content">
+            <h1>Free AI Image Enhancer – Improve Photo Quality Online, No Sign Up</h1>
+            <p>Enhance photos with AI-powered color correction, sharpening, and quality improvement — 100% free, no
+                sign-up required.</p>
+        </div>
+    </section>
+
+    <!-- SECTION 2: WHY USE -->
+    <section class="section-wrapper">
+        <h2 class="section-title">Why Use AI Image Enhancer</h2>
+        <div class="features-grid">
+            <div class="feature-card" onclick="window.location.href='/login'">
+                <div class="feature-icon">⚡</div>
+                <h3>One-Click Enhancement</h3>
+                <p>Automatically analyze and enhance images instantly.</p>
+            </div>
+            <div class="feature-card" onclick="window.location.href='/login'">
+                <div class="feature-icon">🎨</div>
+                <h3>Smart Color Correction</h3>
+                <p>Adjust colors, contrast, and saturation intelligently.</p>
+            </div>
+            <div class="feature-card" onclick="window.location.href='/login'">
+                <div class="feature-icon">👁️</div>
+                <h3>Detail Sharpening</h3>
+                <p>Improve details, reduce blur, and remove noise.</p>
+            </div>
+            <div class="feature-card" onclick="window.location.href='/login'">
+                <div class="feature-icon">💡</div>
+                <h3>Lighting Optimization</h3>
+                <p>Fix under or over-exposed photos automatically.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: USE CASE -->
+    <section class="section-wrapper bg-acc">
+        <h2 class="section-title">Perfect for Photographers & Creators</h2>
+        <p class="section-desc">Whether you're enhancing photos for social media, improving product images for
+            e-commerce, or restoring old photographs, AI Image Enhancer delivers professional-quality results.</p>
+        <div class="badges-container">
+            <span class="use-badge">📸 Portraits</span>
+            <span class="use-badge">🏔️ Landscapes</span>
+            <span class="use-badge">🛍️ Product Shots</span>
+            <span class="use-badge">🕰️ Old Photos</span>
+        </div>
+    </section>
+
+    <!-- SECTION 5: EXAMPLE PREVIEW (Advanced Slider) -->
+    <section class="section-wrapper">
+        <div class="slider-header">
+            <h2 class="section-title">AI Image Enhancer Example</h2>
+            <p class="section-subtitle">See the difference our AI makes instantly</p>
+        </div>
+
+        <div class="comparison-container">
+            <div class="comparison-wrapper" id="comparison-slider">
+                <!-- After Image (Background) -->
+                <div class="comp-img-layer after">
+                    <img src="/static/example-after.jpg" alt="After Enhancement">
+                    <span class="label-badge label-after">After</span>
+                </div>
+
+                <!-- Before Image (Foreground - Resizable) -->
+                <div class="comp-img-layer before">
+                    <img src="/static/example-before.jpg" alt="Before Enhancement">
+                    <span class="label-badge label-before">Before</span>
+                </div>
+
+                <!-- Slider Handle -->
+                <div class="slider-handle">
+                    <div class="handle-line"></div>
+                    <div class="handle-circle">
+                        <i class="fas fa-arrows-alt-h"></i>
+                    </div>
+                    <div class="handle-line"></div>
+                </div>
+            </div>
+
+            <div class="interaction-hint">
+                <i class="fas fa-mouse-pointer"></i> Drag slider to compare
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: CALL TO ACTION -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>💫 To Enhance Your Picture, Click Here!</h2>
+            <p class="cta-text">Unleash the full potential of your images with our AI tools.</p>
+            <button class="btn btn-cta-vibrant" onclick="window.location.href='/login'">
+                Enhance Now
+            </button>
+        </div>
+    </section>
+
+    <!-- Support Sections (Models, FAQ) -->
+    <section class="section-wrapper">
+        <h2 class="section-title">AI & Image Models Supported</h2>
+        <div class="models-grid">
+            <span class="model-pill">GPT-5</span>
+            <span class="model-pill">GPT-4o</span>
+            <span class="model-pill">Claude</span>
+            <span class="model-pill">Gemini</span>
+            <span class="model-pill">Flux</span>
+            <span class="model-pill">Ideogram</span>
+            <span class="model-pill">Runway</span>
+        </div>
+    </section>
+
+    <section class="section-wrapper">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">1. What types of images can AI Image Enhancer improve? <span
+                        class="toggle-icon">+</span></div>
+                <div class="faq-answer">Our tool works best on JPEG and PNG images. It identifies imperfections in
+                    low-light photos, blurry shots, and older low-resolution images to restore details.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">2. Will the enhanced image lose quality? <span class="toggle-icon">+</span>
+                </div>
+                <div class="faq-answer">No, contrary to traditional scaling, our AI generates new pixels to upscale
+                    resolution while preserving and sharpening details.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">3. Is AI Image Enhancer free to use? <span class="toggle-icon">+</span></div>
+                <div class="faq-answer">Yes, this local version runs completely offline on your machine, making it 100%
+                    free with no usage limits.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">4. What file formats are supported? <span class="toggle-icon">+</span></div>
+                <div class="faq-answer">We currently support the most common image formats including JPG, JPEG, and PNG.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">5. How long does enhancement take? <span class="toggle-icon">+</span></div>
+                <div class="faq-answer">Enhancement speed depends on your hardware (GPU/CPU). Typically, it takes a few
+                    seconds to a minute per image.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Picture Enhancer AI</h4>
+                <p>A professional offline AI tool to enhance, denoise, and upscale your photos securely and privately.
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Connect With Developer</h4>
+                <a href="https://www.linkedin.com/in/muhammad-talha-6278463a1" target="_blank" class="linkedin-btn">
+                    <i class="fab fa-linkedin"></i> LinkedIn Profile
+                </a>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 3rem; color: #475569; font-size: 0.9rem;">
+            &copy; 2024 Picture Enhancer AI. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="/static/auth.js"></script>
+    <script src="/static/theme.js"></script>
+    <script src="/static/landing.js"></script>
+</body>
+
+</html>

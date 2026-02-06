@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - AI Picture Enhancer</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body class="dashboard-body">
+
+    <!-- Top Navbar -->
+    <nav class="dash-navbar">
+        <div class="dash-brand">
+            <i class="fas fa-magic"></i> AI Enhancer
+        </div>
+
+        <!-- Navigation Links -->
+        <ul class="dash-nav-links">
+            <li class="dash-nav-item">
+                <span id="user-greeting" class="nav-text">Welcome, User</span>
+            </li>
+            <li class="dash-nav-item">
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </li>
+            <li class="dash-nav-item active" data-tab="enhance">
+                <i class="fas fa-magic"></i> Enhance
+            </li>
+            <li class="dash-nav-item" data-tab="history">
+                <i class="fas fa-history"></i> History
+            </li>
+            <li class="dash-nav-item" onclick="logout()">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </li>
+        </ul>
+    </nav>
+
+    <div class="dash-layout">
+        <!-- Main Content (Full Width) -->
+
+        <!-- Main Content -->
+        <main class="dash-main">
+
+            <!-- Tab: Enhance Image -->
+            <div id="tab-enhance" class="tab-content active">
+                <div class="dash-header">
+                    <h2>Enhance Image</h2>
+                    <p>Upload a photo to improve quality instantly.</p>
+                </div>
+
+                <div class="app-card" id="app-main">
+                    <!-- Step 1 Target -->
+                    <div class="upload-section" id="drop-zone">
+                        <input type="file" id="file-input" accept="image/jpeg, image/png, image/jpg" hidden>
+                        <div class="upload-content">
+                            <i class="fas fa-cloud-upload-alt upload-icon"></i>
+                            <p>Drag & Drop your image here</p>
+                            <span class="or-divider">OR</span>
+                            <button class="btn btn-secondary" id="browse-btn">Browse Files</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 Target -->
+                    <div class="controls-section" id="controls-section">
+                        <div class="filter-group">
+                            <label for="filter-select"><i class="fas fa-sliders-h"></i> Select Enhancement:</label>
+                            <div class="select-wrapper">
+                                <select id="filter-select">
+                                    <option value="auto">✨ Auto Enhance</option>
+                                    <option value="denoise">🔇 Denoise (Remove Noise)</option>
+                                    <option value="brightness">☀️ Increase Brightness</option>
+                                    <option value="contrast">🌓 Increase Contrast</option>
+                                    <option value="sharpen">🔪 Sharpen</option>
+                                    <option value="grayscale">⚫ Black & White</option>
+                                    <option value="blur">💧 Blur</option>
+                                    <option value="resize">📏 Resize</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Resize Options (Hidden by default) -->
+                        <div id="resize-options" style="display: none; margin-bottom: 1rem; gap: 10px;">
+                            <div class="input-wrapper">
+                                <label style="font-size: 0.9rem; color: #ccc;">Width (px)</label>
+                                <input type="number" id="resize-width" placeholder="Width"
+                                    style="padding: 0.5rem; border-radius: 6px; border: 1px solid #334155; background: #0f172a; color: white;">
+                            </div>
+                            <div class="input-wrapper">
+                                <label style="font-size: 0.9rem; color: #ccc;">Height (px)</label>
+                                <input type="number" id="resize-height" placeholder="Height"
+                                    style="padding: 0.5rem; border-radius: 6px; border: 1px solid #334155; background: #0f172a; color: white;">
+                            </div>
+                        </div>
+                        <button id="enhance-btn" class="btn btn-primary">
+                            Enhance Image <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+
+                    <!-- Step 3 Target -->
+                    <div class="preview-section" id="preview-section" style="display: none;">
+                        <div class="image-wrapper">
+                            <div class="img-container">
+                                <span class="badge original">Original</span>
+                                <img id="original-preview" src="" alt="Original Image">
+                            </div>
+                            <div class="img-container">
+                                <span class="badge result">Enhanced</span>
+                                <div class="loader-overlay" id="loader">
+                                    <div class="spinner"></div>
+                                </div>
+                                <img id="enhanced-preview" src="" alt="Enhanced Image">
+                            </div>
+                        </div>
+
+                        <div class="action-buttons">
+                            <a id="download-btn" class="btn btn-success disabled" download="enhanced-image.jpg">
+                                <i class="fas fa-download"></i> Download Result
+                            </a>
+                            <button id="reset-btn" class="btn btn-outline">
+                                <i class="fas fa-redo"></i> Enhance Another
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab: History -->
+            <div id="tab-history" class="tab-content">
+                <div class="dash-header">
+                    <h2>Your History</h2>
+                    <p>View and download your past enhancements.</p>
+                </div>
+                <!-- History Grid -->
+                <div class="history-grid" id="history-grid">
+                    <!-- Javascript will populate this -->
+                    <p style="color: var(--text-muted); text-align: center; grid-column: 1/-1;">Loading history...</p>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast hidden">Message</div>
+
+    <script src="/static/auth.js"></script>
+    <script src="/static/theme.js"></script>
+    <script src="/static/script.js"></script>
+</body>
+
+</html>
